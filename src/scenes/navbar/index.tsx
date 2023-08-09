@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 type Props = {};
+
 const Navbar = (props: Props) => {
   const { palette } = useTheme();
   const [selected, setSelected] = useState("dashboard");
@@ -32,6 +33,7 @@ const Navbar = (props: Props) => {
             dashboard
           </Link>
         </Box>
+        
         <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
           <Link
             to="/predictions"
@@ -48,4 +50,5 @@ const Navbar = (props: Props) => {
     </FlexBetween>
   );
 };
+
 export default Navbar;

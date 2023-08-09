@@ -2,8 +2,11 @@ import DashboardBox from "@/components/DashboardBox";
 import { useGetKpisQuery } from "@/state/api";
 
 type Props = {};
+
 const Row1 = (props: Props) => {
   const { data } = useGetKpisQuery();
+  console.log("data", data);
+  console.log("data", typeof data);
   return (
     <>
       {" "}
@@ -13,4 +16,5 @@ const Row1 = (props: Props) => {
     </>
   );
 };
+
 export default Row1;

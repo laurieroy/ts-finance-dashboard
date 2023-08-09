@@ -8,7 +8,7 @@ export const api = createApi({
     getKpis: build.query<void, void>({
       query: () => "kpi/kpis/",
       providesTags: ["Kpis"],
-    }),
+    })
   }),
 });
 
