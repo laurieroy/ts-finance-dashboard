@@ -2,7 +2,7 @@ import BoxHeader from "@/components/BoxHeader";
 import DashboardBox from "@/components/DashboardBox";
 import FlexBetween from "@/components/FlexBetween";
 import { useGetKpisQuery, useGetProductsQuery } from "@/state/api";
-import { Box, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { useMemo } from "react";
 import {
   ResponsiveContainer,
@@ -24,7 +24,7 @@ const pieData = [
 
 const Row2 = () => {
   const { palette } = useTheme();
-  const PIECOLORS = [palette.primary[800], palette.primary[300]];
+  const PIE_COLORS = [palette.primary[800], palette.primary[300]];
   const { data: operationalData } = useGetKpisQuery();
   const { data: productData } = useGetProductsQuery();
   const operationalExpenses = useMemo(() => {
@@ -46,7 +46,7 @@ const Row2 = () => {
     <>
       <DashboardBox gridArea="d">
         <BoxHeader
-          title="Operations vs Non-operational Expenses"
+          title="Operational vs Non-operational Expenses"
           sidetext="+43%"
         />
         <ResponsiveContainer width="100%" height="100%">
@@ -89,8 +89,9 @@ const Row2 = () => {
           </LineChart>
         </ResponsiveContainer>
       </DashboardBox>
+      
       <DashboardBox gridArea="e">
-        <BoxHeader title="Campaigns and Targets" sideText="+43%" />
+        <BoxHeader title="Campaigns and Targets" sidetext="+4%" />
         <FlexBetween mt="0.25rem" gap="1.5rem" pr="1rem">
           <PieChart
             width={110}
@@ -113,12 +114,12 @@ const Row2 = () => {
               {pieData.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={PIECOLORS[index % PIECOLORS.length]}
+                  fill={PIE_COLORS[index % PIE_COLORS.length]}
                 />
               ))}
             </Pie>
           </PieChart>
-          <Box ml="-0.7rem" flex-basis="40%" textAlign="center">
+          <Box ml="-0.7rem" flexBasis="40%" textAlign="center">
             <Typography variant="h5">Target Sales</Typography>
             <Typography variant="h3" m="0.3rem 0" color={palette.primary[300]}>
               83
@@ -127,7 +128,7 @@ const Row2 = () => {
               Finance goals of the campaign that is desired
             </Typography>
           </Box>
-          <Box flex-basis="40%">
+          <Box flexBasis="40%">
             <Typography variant="h5">Losses in Revenue</Typography>
             <Typography variant="h6">Losses are down 25%</Typography>
             <Typography variant="h5" mt="0.4rem">
