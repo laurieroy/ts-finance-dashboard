@@ -178,7 +178,27 @@ const Row3 = (props: Props) => {
           ))}
         </FlexBetween>
       </DashboardBox>
-      <DashboardBox gridArea="j">"j"</DashboardBox>
+
+      <DashboardBox gridArea="j">
+        <BoxHeader
+          title="Overall Summary and Explanation Data"
+          sidetext="+15%"
+        />
+        <Box
+          height="15px"
+          margin="1.25rem 1rem 0.4rem 1rem"
+          bgcolor={palette.primary[800]}
+          borderRadius="1rem"
+        >
+          <Box
+              height="15px"
+              width="40%"
+              bgcolor={palette.primary[600]}
+              borderRadius="1rem"
+          ></Box>
+        </Box>
+        <Typography margin=" 0 1rem" variant="h6">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut, ab. Omnis optio illum laudantium incidunt error aliquid sunt officiis nisi quas. Repudiandae, id. Illum veniam molestias iure officia eos aliquam.</Typography>
+      </DashboardBox>
     </>
   );
 };
