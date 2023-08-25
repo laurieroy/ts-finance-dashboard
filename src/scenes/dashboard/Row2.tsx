@@ -1,8 +1,3 @@
-import BoxHeader from "@/components/BoxHeader";
-import DashboardBox from "@/components/DashboardBox";
-import FlexBetween from "@/components/FlexBetween";
-import { useGetKpisQuery, useGetProductsQuery } from "@/state/api";
-import { Box, Typography, useTheme } from "@mui/material";
 import { useMemo } from "react";
 import {
   ResponsiveContainer,
@@ -16,6 +11,12 @@ import {
   Pie,
   PieChart,
 } from "recharts";
+import { Box, Typography, useTheme } from "@mui/material";
+
+import BoxHeader from "@/components/BoxHeader";
+import DashboardBox from "@/components/DashboardBox";
+import FlexBetween from "@/components/FlexBetween";
+import { useGetKpisQuery, useGetProductsQuery } from "@/state/api";
 
 const pieData = [
   { name: "Group A", value: 600 },
@@ -27,6 +28,7 @@ const Row2 = () => {
   const PIE_COLORS = [palette.primary[800], palette.primary[300]];
   const { data: operationalData } = useGetKpisQuery();
   const { data: productData } = useGetProductsQuery();
+
   const operationalExpenses = useMemo(() => {
     return (
       operationalData &&
@@ -34,8 +36,8 @@ const Row2 = () => {
         ({ month, operationalExpenses, nonOperationalExpenses }) => {
           return {
             name: month.substring(0, 3),
-            OperationalExpenses: operationalExpenses,
-            NonoperationalExpenses: nonOperationalExpenses,
+            "Operational Expenses": operationalExpenses,
+            "Non-Operational Expenses": nonOperationalExpenses,
           };
         }
       )
@@ -46,7 +48,7 @@ const Row2 = () => {
     <>
       <DashboardBox gridArea="d">
         <BoxHeader
-          title="Operational vs Non-operational Expenses"
+          title="Operational vs Non-Operational Expenses"
           sidetext="+43%"
         />
         <ResponsiveContainer width="100%" height="100%">
@@ -65,7 +67,12 @@ const Row2 = () => {
               tickLine={false}
               style={{ fontSize: "10px" }}
             />
-            <YAxis yAxisId="left" axisLine={false} tickLine={false} />
+            <YAxis
+              yAxisId="left"
+              axisLine={false}
+              tickLine={false}
+              style={{ fontSize: "10px" }}
+            />
             <YAxis
               yAxisId="right"
               orientation="right"
@@ -77,7 +84,7 @@ const Row2 = () => {
             <Line
               yAxisId="left"
               type="monotone"
-              dataKey="Non-operational Expenses"
+              dataKey="Non-Operational Expenses"
               stroke={palette.tertiary[500]}
             />
             <Line
@@ -89,7 +96,7 @@ const Row2 = () => {
           </LineChart>
         </ResponsiveContainer>
       </DashboardBox>
-      
+
       <DashboardBox gridArea="e">
         <BoxHeader title="Campaigns and Targets" sidetext="+4%" />
         <FlexBetween mt="0.25rem" gap="1.5rem" pr="1rem">
@@ -100,7 +107,7 @@ const Row2 = () => {
               top: 0,
               right: -10,
               left: 10,
-              bottom: 55,
+              bottom: 0,
             }}
           >
             <Pie
