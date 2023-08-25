@@ -6,7 +6,7 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import Navbar from "@/scenes/navbar";
 import Dashboard from "@/scenes/dashboard";
-import Predictions from "./scenes/predictions";
+import Predictions from "@/scenes/predictions";
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings), []);
